@@ -8,8 +8,8 @@ import random
 class ResNet50_transformer(nn.Module):
     def __init__(self, vocab_size, d_model=512, num_layers=4, nhead=4, dropout=0.0, max_len=200):
         super().__init__()
-        resnet = models.resnet50(pretrained=True)
-        # resnet = models.resnet34(pretrained=True) # dim output = 512
+        # resnet = models.resnet50(pretrained=True)
+        resnet = models.resnet34(pretrained=True) # dim output = 512
 
         self.encoder = nn.Sequential(
             resnet.conv1,
@@ -21,7 +21,7 @@ class ResNet50_transformer(nn.Module):
             resnet.layer3,
             # resnet.layer4
         )
-        self.conv1 = nn.Conv2d(1024, d_model, kernel_size=1) # 2048, 1024
+        self.conv1 = nn.Conv2d(256, d_model, kernel_size=1) # 2048, 1024
 
         pe = torch.zeros(max_len, d_model)
         position = torch.arange(0, max_len).float().unsqueeze(1)

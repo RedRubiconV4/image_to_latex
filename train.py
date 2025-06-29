@@ -47,7 +47,7 @@ if __name__ == '__main__':
     parser.add_argument('--model', default='resnet_transformer', choices=['resnet_transformer, vision_transformer'])
     parser.add_argument('--epochs', default=100)
     parser.add_argument('--device', default='gpu', choices=['cpu', 'cuda'])
-    parser.add_argument('--save_Frequency', default=1)
+    parser.add_argument('--save_frequency', default=1)
     parser.add_argument('--save_path', default='/save_path')
     parser.add_argument('--checkpoint', default=None)
 

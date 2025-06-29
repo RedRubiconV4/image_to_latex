@@ -1,1 +1,15 @@
+Image_to_latex
 
+The dataset used for training the model uses a preprocessed im2latex_100k dataset from kaggle:
+https://www.kaggle.com/datasets/shahrukhkhan/im2latex100k
+
+Model architecture uses a encoder and decoder, using either a resnet34 with the last layer removed or a vision transformer for the backbone and a transformer for the decoder.
+
+For training the model:
+  python train.py --data_path /data_path --model 'resnet_transformer' --epochs 100 --save_frequency 5 --save_path '/save_path'
+
+For testing the model on the testing dataset:
+  python test.py --data_path /data_path --model 'resnet_transformer' --checkpoint '/model.pt'
+
+For inferencing:
+  python inference.py --data_path /data_path --model 'resnet_transformer' --checkpoint '/model.pt'
